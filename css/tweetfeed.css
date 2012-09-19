@@ -1,0 +1,79 @@
+html {
+	background: #eeeeee;
+}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.4em;
+	background: #eeeeee;
+	color: #333333;
+	background-image: url('../images/back.png');
+	background-repeat: repeat;
+	padding-top: 4px;
+	margin: 0px;
+}
+.feedbody {
+    padding-left: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+    overflow: hidden;
+}
+.floatingpanel {
+    border-style: solid;
+    border-color: #949191;
+    border-width: 1px;
+    border-radius: 5px;
+    -moz-box-shadow: 3px 3px 3px #888;
+    -webkit-box-shadow: 3px 3px 3px #888;
+    box-shadow: 3px 3px 3px #888;
+}
+.search_panel {
+    position: relative;
+    top: 4px;
+    margin-left: 4px;
+    margin-bottom: 20px;
+    width: 95%;
+    display: block;
+    background: #dfdeb9;
+    height: 35px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.search_panel .searchinput {
+    display: block;
+    width: 96%;
+}
+.tweet {
+    display: block;
+    width: 98%;
+    margin-bottom: 5px;
+    max-height: 10%;
+    overflow: hidden;
+    padding: 2px;
+    background: #f5f5e8;
+}
+.tweet .userblock {
+    width: 25%;
+    display: block;
+    float: left;
+/*     background: gray; */
+    overflow: hidden;
+    margin-right: 1px;
+    height: 70px;
+}
+.tweet .userblock .tweetuserimage {
+    display: table-cell;
+    display: inline-block;
+}
+.tweet .userblock .tweetuser {
+    display: table-cell;
+    display: inline-block;
+}
+.tweet .tweetcontent {
+    width: 74%;
+    display: block;
+/*     background: green; */
+    float: left;
+    height: 70px;
+    overflow: hidden;
+}
