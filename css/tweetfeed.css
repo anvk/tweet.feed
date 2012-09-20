@@ -77,3 +77,7 @@ body {
     height: 70px;
     overflow: hidden;
 }
+.tweet .tweetcontent .highlight {
+    background: yellow;
+    font-size: 16px;
+}

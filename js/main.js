@@ -12,16 +12,17 @@ require.config({
     }
 });
 require(["feed", "feedview", "searchpanelview"], function(Feed, FeedView, SearchPanelView) {
-    var debug = true, 
-        a = 0,
-        tweetUpdateTime = 1000;
+    var debug = true;
+    var a = 0;
+    var tweetUpdateTime = 1000;
+    var query = "batman";
     
     var tweetFeed = new Feed([], {
-            query: "batman"
-        }),
-        FeedView = new FeedView({
-            collection: tweetFeed
-        });
+        query: query
+    });
+    var FeedView = new FeedView({
+        collection: tweetFeed
+    });
     
     $(".feedbody").html(FeedView.render().el);
     
