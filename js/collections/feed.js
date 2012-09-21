@@ -1,11 +1,10 @@
-define(["underscore", "backbone", "tweetmodel"], function(_, Backbone, Tweet) {
+define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone, Tweet, Config) {
     var Tweets = Backbone.Collection.extend({
         model: Tweet,
-        initialize: function(models, options) {
-            this.query = options.query;
+        initialize: function(models) {
         },
         url: function() {
-            return "http://search.twitter.com/search.json?q=" + this.query + "&callback=?";
+            return "http://search.twitter.com/search.json?q=" + Config.get("query") + "&callback=?";
         },
         parse: function(data) {
             return data.results;
@@ -14,7 +13,7 @@ define(["underscore", "backbone", "tweetmodel"], function(_, Backbone, Tweet) {
             var newModels = [];
             _.each(models, function(model) {
                 if (typeof this.get(model.id) === "undefined") {
-                    model.text = this.highlight(model.text, this.query);
+                    model.text = this.highlight(model.text, Config.get("query"));
                     newModels.push(model);
                 }
             }, this);
