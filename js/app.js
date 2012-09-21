@@ -13,17 +13,15 @@ require.config({
     }
 });
 require(["feed", "feedview", "searchpanelview"], function(Feed, FeedView, SearchPanelView) {
-        window.tweetFeedApp = window.tweetFeedApp || {
-            collections: {
-                tweetFeed: new Feed([])
-            },
-            views: {
-                feedView: null
-            }
-        };
-        
-        window.tweetFeedApp.views.feedView = new FeedView({
-            collection: window.tweetFeedApp.collections.tweetFeed
-        });
+    window.tweetFeedApp = window.tweetFeedApp || {
+        collections: {
+            tweetFeed: new Feed()
+        },
+        views: {
+            feedView: null
+        }
+    };
+    window.tweetFeedApp.views.feedView = new FeedView({
+        collection: window.tweetFeedApp.collections.tweetFeed
     });
 });
