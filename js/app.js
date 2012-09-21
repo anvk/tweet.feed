@@ -9,19 +9,14 @@ require.config({
         tweetview: "views/tweetview",
         feed: "collections/feed",
         feedview: "views/feedview",
-        searchpanelview: "views/searchpanelview"
+        toppanelview: "views/toppanelview",
+        appview: "views/appview"
     }
 });
-require(["feed", "feedview", "searchpanelview"], function(Feed, FeedView, SearchPanelView) {
+require(["appview"], function(AppView) {
     window.tweetFeedApp = window.tweetFeedApp || {
-        collections: {
-            tweetFeed: new Feed()
-        },
         views: {
-            feedView: null
+            appView: new AppView
         }
     };
-    window.tweetFeedApp.views.feedView = new FeedView({
-        collection: window.tweetFeedApp.collections.tweetFeed
-    });
 });

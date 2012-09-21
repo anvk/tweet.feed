@@ -27,7 +27,7 @@ body {
     -webkit-box-shadow: 3px 3px 3px #888;
     box-shadow: 3px 3px 3px #888;
 }
-.search_panel {
+.topPanel {
     position: relative;
     top: 4px;
     margin-left: 4px;
@@ -39,7 +39,16 @@ body {
     padding-top: 10px;
     padding-left: 10px;
 }
-.search_panel .searchinput {
+.topPanel .topPanel-buttonPanel {
+    
+}
+.topPanel .topPanel-buttonPanel-button {
+    
+}
+.topPanel .searchPanel {
+    
+}
+.topPanel .searchPanel .searchPanel-searchinput {
     display: block;
     width: 96%;
 }
