@@ -4,15 +4,20 @@ define(["jquery", "underscore", "backbone", "config", "text!templates/toppanel.h
         template: _.template(topPanelTemplate),
         initialize: function() {
             this.render();
+            this.searchInput = $(".searchPanel-searchinput");
         },
         render: function() {
             $(this.el).html(this.template);
         },
         events: {
-            "change .searchPanel-searchinput": "changeSearch"
+            "keyup .searchPanel-searchinput": "changeSearch"
         },
         changeSearch: function() {
-            alert('hola');
+            Config.set({
+                running: false,
+                query: this.searchInput.val()
+            });
+            //alert('hola');
         }
     });
     return new TopPanelView;

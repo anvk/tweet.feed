@@ -10,7 +10,8 @@ require.config({
         feed: "collections/feed",
         feedview: "views/feedview",
         toppanelview: "views/toppanelview",
-        appview: "views/appview"
+        appview: "views/appview",
+        startfeedbuttonview: "views/startfeedbuttonview"
     }
 });
 require(["appview"], function(AppView) {

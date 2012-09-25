@@ -11,6 +11,8 @@ define(["jquery", "underscore", "backbone", "tweetview", "config"], function($, 
                 });
                 $(this.el).prepend(tweetView.render().el);
             }, this);
+            
+            this.model.bind("change:running", this.startStopFeed, this);
 
             this.render();
             this.updateTweets();
@@ -19,14 +21,21 @@ define(["jquery", "underscore", "backbone", "tweetview", "config"], function($, 
             return this;
         },
         updateTweets: function() {
-            this.collection.fetch({
-                add: true
-            });
             if (!Config.canRun()) {
                 clearTimeout(this.loop);
                 return;
             }
+            this.collection.fetch({
+                add: true
+            });
             this.loop = setTimeout(this.updateTweets, Config.get("tweetUpdateTime"));
+        },
+        startStopFeed: function() {
+            if (Config.get("running")) {
+                this.updateTweets();
+            } else {
+                clearTimeout(this.loop);
+            }
         }
     });
     return FeedView;
