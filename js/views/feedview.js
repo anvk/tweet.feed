@@ -2,7 +2,7 @@ define(["jquery", "underscore", "backbone", "tweetview", "config"], function($, 
     var FeedView = Backbone.View.extend({
         el: ".feedbody",
         loop: null,
-        initialize: function(options) {
+        initialize: function() {
             _.bindAll(this, "updateTweets");
 
             this.collection.bind("add", function(model) {

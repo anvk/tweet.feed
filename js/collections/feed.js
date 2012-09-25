@@ -4,18 +4,16 @@ define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone,
         initialize: function(models) {
         },
         url: function() {
-            var query = encodeURIComponent(Config.get("query"));    // this should be changed on set in Config
-            return "http://search.twitter.com/search.json?q=" + query + "&callback=?";
+            return "http://search.twitter.com/search.json?q=" + Config.get("queryEncoded") + "&callback=?";
         },
         parse: function(data) {
             return data.results;
         },
         add: function(models, options) {
             var newModels = [];
-            var query = decodeURIComponent(Config.get("query")); // this should be changed on set in Config
             _.each(models, function(model) {
                 if (typeof this.get(model.id) === "undefined") {
-                    model.text = this.highlight(model.text, query);
+                    model.text = this.highlight(model.text, Config.get("query"));
                     newModels.push(model);
                 }
             }, this);

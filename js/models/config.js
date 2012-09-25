@@ -5,7 +5,16 @@ define(["underscore", "backbone"], function(_, Backbone) {
             runCycles: 15,
             tweetUpdateTime: 1000,
             query: "batman",
+            queryEncoded: "batman",
             running: false
+        },
+        initialize: function() {
+            this.bind("change:query", this.encodeQuery, this);
+        },
+        encodeQuery: function() {
+            this.set({
+                queryEncoded: encodeURIComponent(this.get("query"))
+            });
         },
         canRun: function () {
             if (!this.get("running")) {
