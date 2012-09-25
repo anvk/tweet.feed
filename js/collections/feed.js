@@ -1,10 +1,9 @@
 define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone, Tweet, Config) {
     var Tweets = Backbone.Collection.extend({
         model: Tweet,
-        initialize: function(models) {
-        },
+        initialize: function(models) {},
         url: function() {
-            return "http://search.twitter.com/search.json?q=" + Config.get("queryEncoded") + "&callback=?";
+            return Config.get("fullQuery")
         },
         parse: function(data) {
             return data.results;

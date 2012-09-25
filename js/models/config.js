@@ -5,16 +5,21 @@ define(["underscore", "backbone"], function(_, Backbone) {
             runCycles: 15,
             tweetUpdateTime: 1000,
             query: "batman",
-            queryEncoded: "batman",
+            fullQuery: "",
             running: false
         },
         initialize: function() {
-            this.bind("change:query", this.encodeQuery, this);
+            this.getFullQuery();
+            this.bind("change:query", this.getFullQuery, this);
         },
-        encodeQuery: function() {
+        getFullQuery: function() {
+            var queryEncoded = encodeURIComponent(this.get("query"));
             this.set({
-                queryEncoded: encodeURIComponent(this.get("query"))
+                fullQuery: this.makeFullQuery(queryEncoded)
             });
+        },
+        makeFullQuery: function(searchCriteriaEncoded) {
+            return "http://search.twitter.com/search.json?q=" + searchCriteriaEncoded + "&callback=?";
         },
         canRun: function () {
             if (!this.get("running")) {
