@@ -8,7 +8,8 @@ define(["jquery", "underscore", "backbone", "text!templates/tweet.html"], functi
                 tweetuserimage: this.model.get("profile_image_url"),
                 tweetuser: this.model.get("from_user"),
                 tweettext: this.model.get("text")
-            }));
+            })).hide();
+            $(this.el).fadeIn("slow");
             return this;
         }
     });
