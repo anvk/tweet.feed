@@ -4,6 +4,7 @@ define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, 
         styleStop: "stop",
         styleStart: "start",
         initialize: function() {
+            _.bindAll(this, "startStopFeed", "setButtonStyle");
             this.setButtonStyle();
             this.model.bind("change:running", this.setButtonStyle, this);
         },
@@ -16,10 +17,7 @@ define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, 
             $el.addClass(Config.get("running") ? this.styleStart : this.styleStop);
         },
         startStopFeed: function() {
-            var running = !Config.get("running");
-            Config.set({
-                running: running
-            });
+            Config.startStop();
         }
     });
     return StartFeedViewButton;

@@ -3,12 +3,13 @@ define(["underscore", "backbone"], function(_, Backbone) {
         defaults: {
             debug: false,
             runCycles: 15,
-            tweetUpdateTime: 1000,
-            query: "batman",
+            tweetUpdateTime: 2000,
+            query: "cat",
             fullQuery: "",
             running: false
         },
         initialize: function() {
+            _.bindAll(this, "getFullQuery", "makeFullQuery", "canRun", "changeSearch", "startStop");
             this.getFullQuery();
             this.bind("change:query", this.getFullQuery, this);
         },
@@ -38,6 +39,18 @@ define(["underscore", "backbone"], function(_, Backbone) {
                 }
             }
             return true;
+        },
+        changeSearch: function (newQuery) {
+            this.set({
+                running: false,
+                query: newQuery
+            });
+        },
+        startStop: function() {
+            var running = !this.get("running");
+            this.set({
+                running: running
+            });
         }
     });
     return new Config;

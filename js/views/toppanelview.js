@@ -3,6 +3,7 @@ define(["jquery", "underscore", "backbone", "config", "text!templates/toppanel.h
         el: ".topPanel",
         template: _.template(topPanelTemplate),
         initialize: function() {
+            _.bindAll(this, "changeSearch");
             this.render();
             this.searchInput = $(".searchPanel-searchinput");
         },
@@ -13,11 +14,7 @@ define(["jquery", "underscore", "backbone", "config", "text!templates/toppanel.h
             "keyup .searchPanel-searchinput": "changeSearch"
         },
         changeSearch: function() {
-            Config.set({
-                running: false,
-                query: this.searchInput.val()
-            });
-            //alert('hola');
+            Config.changeSearch(this.searchInput.val());
         }
     });
     return new TopPanelView;
