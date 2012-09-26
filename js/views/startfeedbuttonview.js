@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
+define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, Config) {
     var StartFeedViewButton = Backbone.View.extend({
         el: ".topPanel-buttonPanel",
         styleStop: "stop",
@@ -6,7 +6,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
         initialize: function() {
             _.bindAll(this, "startStopFeed", "setButtonStyle");
             this.setButtonStyle();
-            this.model.bind("change:running", this.setButtonStyle, this);
+            Config.bind("change:running", this.setButtonStyle, this);
         },
         events: {
             "click": "startStopFeed"
@@ -16,10 +16,10 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
             var styleStop = this.styleStop;
             var styleStart = this.styleStart;
             $el.removeClass(styleStop + " " + styleStart);
-            $el.addClass(this.model.get("running") ? styleStart : styleStop);
+            $el.addClass(Config.get("running") ? styleStart : styleStop);
         },
         startStopFeed: function() {
-            this.model.startStop();
+            Config.startStop();
         }
     });
     return StartFeedViewButton;

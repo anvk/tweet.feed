@@ -3,9 +3,7 @@ define(["jquery", "underscore", "backbone", "feed", "feedview", "toppanelview", 
         el: ".feedbody",
         initialize: function(options) {
             this.tweetFeed = new Feed();
-            this.startFeedButtonView = new StartFeedViewButton({
-                model: Config
-            });
+            this.startFeedButtonView = new StartFeedViewButton();
             this.feedView = new FeedView({
                 collection: this.tweetFeed
             });
