@@ -7,7 +7,6 @@ define(["jquery", "underscore", "backbone", "feed", "feedview", "toppanelview", 
                 model: Config
             });
             this.feedView = new FeedView({
-                model: Config,
                 collection: this.tweetFeed
             });
         }

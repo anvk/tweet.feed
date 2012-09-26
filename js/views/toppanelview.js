@@ -14,7 +14,9 @@ define(["jquery", "underscore", "backbone", "config", "text!templates/toppanel.h
             "keyup .searchPanel-searchinput": "changeSearch"
         },
         changeSearch: function() {
-            Config.changeSearch(this.searchInput.val());
+            Config.set({
+                query: this.searchInput.val()
+            });
         }
     });
     return new TopPanelView;

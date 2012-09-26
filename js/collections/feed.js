@@ -1,7 +1,11 @@
 define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone, Tweet, Config) {
     var Tweets = Backbone.Collection.extend({
         model: Tweet,
-        initialize: function(models) {},
+        loop: null,
+        initialize: function(models) {
+            _.bindAll(this, "highlight", "updateTweets", "startStopFeed");
+            Config.bind("change:running", this.startStopFeed, this);
+        },
         url: function() {
             return Config.get("fullQuery")
         },
@@ -34,6 +38,23 @@ define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone,
         },
         highlight: function( data, search ) {
             return data.replace( new RegExp( "(" + this.preg_quote( search ) + ")" , 'gi' ), "<span class=\"highlight\">$1</span>" );
+        },
+        updateTweets: function() {
+            if (!Config.canRun()) {
+                clearTimeout(this.loop);
+                return;
+            }
+            this.fetch({
+                add: true
+            });
+            this.loop = setTimeout(this.updateTweets, Config.get("tweetUpdateTime"));
+        },
+        startStopFeed: function() {
+            if (Config.get("running")) {
+                this.updateTweets();
+            } else {
+                clearTimeout(this.loop);
+            }
         }
     });
     return Tweets;

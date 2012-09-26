@@ -11,7 +11,7 @@ define(["underscore", "backbone"], function(_, Backbone) {
         initialize: function() {
             _.bindAll(this, "getFullQuery", "makeFullQuery", "canRun", "changeSearch", "startStop");
             this.getFullQuery();
-            this.bind("change:query", this.getFullQuery, this);
+            this.bind("change:query", this.changeSearch, this);
         },
         getFullQuery: function() {
             var queryEncoded = encodeURIComponent(this.get("query"));
@@ -41,9 +41,11 @@ define(["underscore", "backbone"], function(_, Backbone) {
             return true;
         },
         changeSearch: function (newQuery) {
+            var queryEncoded = encodeURIComponent(this.get("query"));
             this.set({
                 running: false,
-                query: newQuery
+                query: newQuery,
+                fullQuery: this.makeFullQuery(queryEncoded)
             });
         },
         startStop: function() {
