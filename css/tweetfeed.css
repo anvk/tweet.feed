@@ -18,6 +18,7 @@ html, body, .appView { margin: 0; width: 100%; min-height: 100%; }
     padding-left: 4px;
     padding-bottom: 4px;
     padding-right: 4px;
+    margin-top: 75px;
     overflow: hidden;
 }
 .floatingpanel {
@@ -30,9 +31,13 @@ html, body, .appView { margin: 0; width: 100%; min-height: 100%; }
     box-shadow: 3px 3px 3px #888;
 }
 .topPanel {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.topPanel-content {
     position: relative;
     margin-top: 8px;
-    margin-bottom: 20px;
     width: 95%;
     display: block;
     height: 45px;
@@ -41,7 +46,7 @@ html, body, .appView { margin: 0; width: 100%; min-height: 100%; }
     background: #dfdeb9;
     padding-left: 5px;
 }
-.topPanel .topPanel-buttonPanel {
+.topPanel-content .topPanel-buttonPanel {
     float: right;
     width: 45px;
     height: 100%;
@@ -50,15 +55,15 @@ html, body, .appView { margin: 0; width: 100%; min-height: 100%; }
     border-left-color: #949191;
     border-left-width: 1px;
 }
-.topPanel .topPanel-buttonPanel.stop {
+.topPanel-content .topPanel-buttonPanel.stop {
     background-image: url('../images/start.png');
     background-size: 100%;
 }
-.topPanel .topPanel-buttonPanel.start {
+.topPanel-content .topPanel-buttonPanel.start {
     background-image: url('../images/stop.png');
     background-size: 100%;
 }
-.topPanel .searchPanel-searchinput {
+.topPanel-content .searchPanel-searchinput {
     margin-top: 10px;
     width: 87%;
 }
@@ -66,6 +71,8 @@ html, body, .appView { margin: 0; width: 100%; min-height: 100%; }
     display: block;
     width: 98%;
     margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
     max-height: 10%;
     overflow: hidden;
     padding: 2px;
