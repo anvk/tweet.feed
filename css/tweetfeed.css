@@ -8,7 +8,7 @@ body {
 	background: #eeeeee;
 	color: #333333;
 }
-html, body, .appView { height: 100%; margin: 0; width: 100%; }
+html, body, .appView { margin: 0; width: 100%; min-height: 100%; }
 .appView {
     background-image: url('../images/back.png');
     background-repeat: repeat;

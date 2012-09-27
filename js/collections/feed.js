@@ -14,9 +14,13 @@ define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone,
         },
         add: function(models, options) {
             var newModels = [];
+            var query = Config.get("query");
             _.each(models, function(model) {
                 if (typeof this.get(model.id) === "undefined") {
-                    model.text = this.highlight(model.text, Config.get("query"));
+                    if (model.text.toLowerCase().indexOf(query.toLowerCase()) === -1) {
+                        return;
+                    }
+                    model.text = this.highlight(model.text, query);
                     newModels.push(model);
                 }
             }, this);
