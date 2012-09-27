@@ -40,11 +40,12 @@ define(["underscore", "backbone"], function(_, Backbone) {
             }
             return true;
         },
-        changeSearch: function (newQuery) {
-            var queryEncoded = encodeURIComponent(this.get("query"));
+        changeSearch: function () {
+            var query = this.get("query");
+            var queryEncoded = encodeURIComponent(query);
             this.set({
                 running: false,
-                query: newQuery,
+                query: query,
                 fullQuery: this.makeFullQuery(queryEncoded)
             });
         },
