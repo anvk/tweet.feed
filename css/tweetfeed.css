@@ -34,67 +34,65 @@ html, .appView {
     width: 100%;
     z-index: 1000; }
     .appView .topPanel .topPanel-content {
-      position: relative;
-      margin-top: 8px;
-      width: 95%;
       display: block;
+      width: 95%;
+      overflow: hidden;
       height: 45px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      margin-top: 8px;
       background: #dfdeb9;
       padding-left: 5px; }
       .appView .topPanel .topPanel-content .searchPanel-searchinput {
         margin-top: 10px;
         width: 87%; }
       .appView .topPanel .topPanel-content .topPanel-buttonPanel {
-        float: right;
+        display: block;
         width: 45px;
+        overflow: hidden;
         height: 100%;
+        float: right;
         border-radius: 0px 5px 5px 0px;
         border-left-style: solid;
         border-left-color: #949191;
         border-left-width: 1px; }
         .appView .topPanel .topPanel-content .topPanel-buttonPanel.stop {
-          background-image: url("../images/start.png");
-          background-size: 100%; }
+          background-size: 100%;
+          background-image: url("../images/start.png"); }
         .appView .topPanel .topPanel-content .topPanel-buttonPanel.start {
-          background-image: url("../images/stop.png");
-          background-size: 100%; }
+          background-size: 100%;
+          background-image: url("../images/stop.png"); }
   .appView .feedbody {
-    padding-left: 4px;
-    padding-bottom: 4px;
-    padding-right: 4px;
+    padding: 0px 4px 4px;
     margin-top: 75px;
     overflow: hidden; }
     .appView .feedbody .tweet {
       display: block;
       width: 98%;
-      margin-bottom: 5px;
+      overflow: hidden;
+      height: auto;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 5px;
       max-height: 10%;
-      overflow: hidden;
       padding: 2px;
       background: #f5f5e8; }
       .appView .feedbody .tweet .userblock {
+        display: block;
         width: 25%;
-        display: block;
-        float: left;
         overflow: hidden;
-        margin-right: 1px;
-        height: 70px; }
-        .appView .feedbody .tweet .userblock .tweetuserimage {
-          display: table-cell;
-          display: inline-block; }
-        .appView .feedbody .tweet .userblock .tweetuser {
-          display: table-cell;
-          display: inline-block; }
-      .appView .feedbody .tweet .tweetcontent {
-        width: 74%;
-        display: block;
-        float: left;
         height: 70px;
-        overflow: hidden; }
+        float: left;
+        margin-right: 1px; }
+        .appView .feedbody .tweet .userblock .tweetuserimage, .appView .feedbody .tweet .userblock .tweetuser {
+          display: block; }
+      .appView .feedbody .tweet .tweetcontent {
+        display: block;
+        width: 74%;
+        overflow: hidden;
+        height: 70px;
+        float: left; }
         .appView .feedbody .tweet .tweetcontent .highlight {
           background: yellow;
           font-size: 16px; }

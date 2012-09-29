@@ -1,4 +1,12 @@
 @mixin fullscreen { margin: 0; width: 100%; min-height: 100%; }
+@mixin buttonStyle($image) { background-size: 100%; background-image: url('../images/#{$image}.png'); }
+@mixin hcentered { margin-left: auto; margin-right: auto; }
+@mixin renderArea($width, $height:auto, $display:block, $overflow:hidden) {
+    display: $display;
+    width: $width;
+    overflow: $overflow;
+    height: $height;
+}
 html {
 	background: #eeeeee;
 }
@@ -8,9 +16,9 @@ body {
 	line-height: 1.4em;
 	background: #eeeeee;
 	color: #333333;
-	@include fullscreen
+	@include fullscreen;
 }
-html, .appView { @include fullscreen }
+html, .appView { @include fullscreen; }
 .floatingpanel {
     border-style: solid;
     border-color: #949191;
@@ -29,13 +37,10 @@ html, .appView { @include fullscreen }
         width: 100%;
         z-index: 1000;
         .topPanel-content {
+            @include renderArea(95%, 45px);
+            @include hcentered;
             position: relative;
             margin-top: 8px;
-            width: 95%;
-            display: block;
-            height: 45px;
-            margin-left: auto;
-            margin-right: auto;
             background: #dfdeb9;
             padding-left: 5px;
             .searchPanel-searchinput {
@@ -43,62 +48,47 @@ html, .appView { @include fullscreen }
                 width: 87%;
             }
             .topPanel-buttonPanel {
+                @include renderArea(45px, 100%);
                 float: right;
-                width: 45px;
-                height: 100%;
-                border-radius: 0px 5px 5px 0px;
-                border-left-style: solid;
-                border-left-color: #949191;
-                border-left-width: 1px;
+                border: {
+                    radius: 0px 5px 5px 0px;
+                    left: {
+                        style: solid;
+                        color: #949191;
+                        width: 1px;
+                    }
+                }
                 &.stop {
-                    background-image: url('../images/start.png');
-                    background-size: 100%;
+                    @include buttonStyle(start);
                 }
                 &.start {
-                    background-image: url('../images/stop.png');
-                    background-size: 100%;
+                    @include buttonStyle(stop);
                 }
             }
         }
     }
     .feedbody {
-        padding-left: 4px;
-        padding-bottom: 4px;
-        padding-right: 4px;
+        padding: 0px 4px 4px;
         margin-top: 75px;
         overflow: hidden;
         .tweet {
-            display: block;
-            width: 98%;
+            @include renderArea(98%);
+            @include hcentered;
             margin-bottom: 5px;
-            margin-left: auto;
-            margin-right: auto;
             max-height: 10%;
-            overflow: hidden;
             padding: 2px;
             background: #f5f5e8;
             .userblock {
-                width: 25%;
-                display: block;
+                @include renderArea(25%, 70px);
                 float: left;
-                overflow: hidden;
                 margin-right: 1px;
-                height: 70px;
-                .tweetuserimage {
-                    display: table-cell;
-                    display: inline-block;
-                }
-                .tweetuser {
-                    display: table-cell;
-                    display: inline-block;
+                .tweetuserimage, .tweetuser {
+                    display: block;
                 }
             }
             .tweetcontent {
-                width: 74%;
-                display: block;
+                @include renderArea(74%, 70px);
                 float: left;
-                height: 70px;
-                overflow: hidden;
                 .highlight {
                     background: yellow;
                     font-size: 16px;
