@@ -44,7 +44,7 @@ define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone,
             return data.replace( new RegExp( "(" + this.preg_quote( search ) + ")" , 'gi' ), "<span class=\"highlight\">$1</span>" );
         },
         updateTweets: function() {
-            if (!Config.canRun()) {
+            if (!Config.isRunning()) {
                 clearTimeout(this.loop);
                 return;
             }
