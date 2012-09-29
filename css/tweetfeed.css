@@ -1,107 +1,100 @@
 html {
-	background: #eeeeee;
-}
+  background: #eeeeee; }
+
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.4em;
-	background: #eeeeee;
-	color: #333333;
-}
-html, body, .appView { margin: 0; width: 100%; min-height: 100%; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4em;
+  background: #eeeeee;
+  color: #333333;
+  margin: 0;
+  width: 100%;
+  min-height: 100%; }
+
+html, .appView {
+  margin: 0;
+  width: 100%;
+  min-height: 100%; }
+
+.floatingpanel {
+  border-style: solid;
+  border-color: #949191;
+  border-width: 1px;
+  border-radius: 5px;
+  -moz-box-shadow: 3px 3px 3px #888;
+  -webkit-box-shadow: 3px 3px 3px #888;
+  box-shadow: 3px 3px 3px #888; }
+
 .appView {
-    background-image: url('../images/back.png');
-    background-repeat: repeat;
-    position: absolute;
-}
-.feedbody {
+  background-image: url("../images/back.png");
+  background-repeat: repeat;
+  position: absolute; }
+  .appView .topPanel {
+    position: fixed;
+    width: 100%;
+    z-index: 1000; }
+    .appView .topPanel .topPanel-content {
+      position: relative;
+      margin-top: 8px;
+      width: 95%;
+      display: block;
+      height: 45px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #dfdeb9;
+      padding-left: 5px; }
+      .appView .topPanel .topPanel-content .searchPanel-searchinput {
+        margin-top: 10px;
+        width: 87%; }
+      .appView .topPanel .topPanel-content .topPanel-buttonPanel {
+        float: right;
+        width: 45px;
+        height: 100%;
+        border-radius: 0px 5px 5px 0px;
+        border-left-style: solid;
+        border-left-color: #949191;
+        border-left-width: 1px; }
+        .appView .topPanel .topPanel-content .topPanel-buttonPanel.stop {
+          background-image: url("../images/start.png");
+          background-size: 100%; }
+        .appView .topPanel .topPanel-content .topPanel-buttonPanel.start {
+          background-image: url("../images/stop.png");
+          background-size: 100%; }
+  .appView .feedbody {
     padding-left: 4px;
     padding-bottom: 4px;
     padding-right: 4px;
     margin-top: 75px;
-    overflow: hidden;
-}
-.floatingpanel {
-    border-style: solid;
-    border-color: #949191;
-    border-width: 1px;
-    border-radius: 5px;
-    -moz-box-shadow: 3px 3px 3px #888;
-    -webkit-box-shadow: 3px 3px 3px #888;
-    box-shadow: 3px 3px 3px #888;
-}
-.topPanel {
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-.topPanel-content {
-    position: relative;
-    margin-top: 8px;
-    width: 95%;
-    display: block;
-    height: 45px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #dfdeb9;
-    padding-left: 5px;
-}
-.topPanel-content .topPanel-buttonPanel {
-    float: right;
-    width: 45px;
-    height: 100%;
-    border-radius: 0px 5px 5px 0px;
-    border-left-style: solid;
-    border-left-color: #949191;
-    border-left-width: 1px;
-}
-.topPanel-content .topPanel-buttonPanel.stop {
-    background-image: url('../images/start.png');
-    background-size: 100%;
-}
-.topPanel-content .topPanel-buttonPanel.start {
-    background-image: url('../images/stop.png');
-    background-size: 100%;
-}
-.topPanel-content .searchPanel-searchinput {
-    margin-top: 10px;
-    width: 87%;
-}
-.tweet {
-    display: block;
-    width: 98%;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 10%;
-    overflow: hidden;
-    padding: 2px;
-    background: #f5f5e8;
-}
-.tweet .userblock {
-    width: 25%;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin-right: 1px;
-    height: 70px;
-}
-.tweet .userblock .tweetuserimage {
-    display: table-cell;
-    display: inline-block;
-}
-.tweet .userblock .tweetuser {
-    display: table-cell;
-    display: inline-block;
-}
-.tweet .tweetcontent {
-    width: 74%;
-    display: block;
-    float: left;
-    height: 70px;
-    overflow: hidden;
-}
-.tweet .tweetcontent .highlight {
-    background: yellow;
-    font-size: 16px;
-}
+    overflow: hidden; }
+    .appView .feedbody .tweet {
+      display: block;
+      width: 98%;
+      margin-bottom: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      max-height: 10%;
+      overflow: hidden;
+      padding: 2px;
+      background: #f5f5e8; }
+      .appView .feedbody .tweet .userblock {
+        width: 25%;
+        display: block;
+        float: left;
+        overflow: hidden;
+        margin-right: 1px;
+        height: 70px; }
+        .appView .feedbody .tweet .userblock .tweetuserimage {
+          display: table-cell;
+          display: inline-block; }
+        .appView .feedbody .tweet .userblock .tweetuser {
+          display: table-cell;
+          display: inline-block; }
+      .appView .feedbody .tweet .tweetcontent {
+        width: 74%;
+        display: block;
+        float: left;
+        height: 70px;
+        overflow: hidden; }
+        .appView .feedbody .tweet .tweetcontent .highlight {
+          background: yellow;
+          font-size: 16px; }

@@ -5,4 +5,6 @@ and also inspired by work of addyosmani in his backbone-fundamentals repo https:
 
 The end product suppose to work on Android phones and ported using PhoneGap
 
-Technology used: Backbone, (AMD)Require.JS
+Technology used: Backbone, (AMD)Require.JS, SASS, HTML5, CSS3, JavaScript
+
+Note: this is just assets/www folder for the Android application. Full PhoneGap application is not included in this repo.

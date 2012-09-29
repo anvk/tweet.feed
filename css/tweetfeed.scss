@@ -1,0 +1,109 @@
+@mixin fullscreen { margin: 0; width: 100%; min-height: 100%; }
+html {
+	background: #eeeeee;
+}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.4em;
+	background: #eeeeee;
+	color: #333333;
+	@include fullscreen
+}
+html, .appView { @include fullscreen }
+.floatingpanel {
+    border-style: solid;
+    border-color: #949191;
+    border-width: 1px;
+    border-radius: 5px;
+    -moz-box-shadow: 3px 3px 3px #888;
+    -webkit-box-shadow: 3px 3px 3px #888;
+    box-shadow: 3px 3px 3px #888;
+}
+.appView {
+    background-image: url('../images/back.png');
+    background-repeat: repeat;
+    position: absolute;
+    .topPanel {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        .topPanel-content {
+            position: relative;
+            margin-top: 8px;
+            width: 95%;
+            display: block;
+            height: 45px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #dfdeb9;
+            padding-left: 5px;
+            .searchPanel-searchinput {
+                margin-top: 10px;
+                width: 87%;
+            }
+            .topPanel-buttonPanel {
+                float: right;
+                width: 45px;
+                height: 100%;
+                border-radius: 0px 5px 5px 0px;
+                border-left-style: solid;
+                border-left-color: #949191;
+                border-left-width: 1px;
+                &.stop {
+                    background-image: url('../images/start.png');
+                    background-size: 100%;
+                }
+                &.start {
+                    background-image: url('../images/stop.png');
+                    background-size: 100%;
+                }
+            }
+        }
+    }
+    .feedbody {
+        padding-left: 4px;
+        padding-bottom: 4px;
+        padding-right: 4px;
+        margin-top: 75px;
+        overflow: hidden;
+        .tweet {
+            display: block;
+            width: 98%;
+            margin-bottom: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: 10%;
+            overflow: hidden;
+            padding: 2px;
+            background: #f5f5e8;
+            .userblock {
+                width: 25%;
+                display: block;
+                float: left;
+                overflow: hidden;
+                margin-right: 1px;
+                height: 70px;
+                .tweetuserimage {
+                    display: table-cell;
+                    display: inline-block;
+                }
+                .tweetuser {
+                    display: table-cell;
+                    display: inline-block;
+                }
+            }
+            .tweetcontent {
+                width: 74%;
+                display: block;
+                float: left;
+                height: 70px;
+                overflow: hidden;
+                .highlight {
+                    background: yellow;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
