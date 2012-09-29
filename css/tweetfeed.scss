@@ -7,16 +7,43 @@
     overflow: $overflow;
     height: $height;
 }
+@mixin gradientDouble($color1, $color2, $color3, $color4) {
+/*     This gradient is taken from http://www.colorzilla.com/gradient-editor/ */
+    background: -moz-linear-gradient(top, $color1 0%, $color2 50%, $color3 51%, $color4 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(50%,$color2), color-stop(51%,$color3), color-stop(100%,$color4)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $color1 0%,$color2 50%,$color3 51%,$color4 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $color1 0%,$color2 50%,$color3 51%,$color4 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $color1 0%,$color2 50%,$color3 51%,$color4 100%); /* IE10+ */
+    background: linear-gradient(to bottom, $color1 0%,$color2 50%,$color3 51%,$color4 100%); /* W3C */
+}
+@mixin gradientSingle($color1, $color2, $color3) {
+/*     This gradient is taken from http://www.colorzilla.com/gradient-editor/ */
+    background: -moz-linear-gradient(top, $color1 0%, $color2 53%, $color3 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(53%,$color2), color-stop(100%,$color3)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* IE10+ */
+    background: linear-gradient(to bottom, $color1 0%,$color2 53%,$color3 100%); /* W3C */
+}
+@mixin bodyGradient {
+    @include gradientSingle(rgba(161,219,255,1), rgba(203,235,255,1), rgba(240,249,255,1));
+}
+@mixin panelGradient {
+    @include gradientDouble(rgba(255,255,255,1), rgba(243,243,243,1), rgba(237,237,237,1), rgba(255,255,255,1));
+}
+@mixin topGradient {
+    @include gradientDouble(rgba(246,248,249,1), rgba(229,235,238,1), rgba(215,222,227,1), rgba(245,247,249,1));
+}
 html {
 	background: #eeeeee;
 }
 body {
+	@include fullscreen;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.4em;
 	background: #eeeeee;
 	color: #333333;
-	@include fullscreen;
 }
 html, .appView { @include fullscreen; }
 .floatingpanel {
@@ -29,7 +56,7 @@ html, .appView { @include fullscreen; }
     box-shadow: 3px 3px 3px #888;
 }
 .appView {
-    background-image: url('../images/back.png');
+    @include bodyGradient;
     background-repeat: repeat;
     position: absolute;
     .topPanel {
@@ -37,18 +64,19 @@ html, .appView { @include fullscreen; }
         width: 100%;
         z-index: 1000;
         .topPanel-content {
-            @include renderArea(95%, 45px);
+            @include renderArea(95%, 50px);
             @include hcentered;
+            @include topGradient;
             position: relative;
             margin-top: 8px;
-            background: #dfdeb9;
             padding-left: 5px;
             .searchPanel-searchinput {
                 margin-top: 10px;
-                width: 87%;
+                width: 80%;
+                font-size: inherit;
             }
             .topPanel-buttonPanel {
-                @include renderArea(45px, 100%);
+                @include renderArea(50px, 100%);
                 float: right;
                 border: {
                     radius: 0px 5px 5px 0px;
@@ -74,10 +102,10 @@ html, .appView { @include fullscreen; }
         .tweet {
             @include renderArea(98%);
             @include hcentered;
+            @include panelGradient;
             margin-bottom: 5px;
             max-height: 10%;
             padding: 2px;
-            background: #f5f5e8;
             .userblock {
                 @include renderArea(25%, 70px);
                 float: left;

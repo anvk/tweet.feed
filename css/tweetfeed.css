@@ -2,14 +2,14 @@ html {
   background: #eeeeee; }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.4em;
-  background: #eeeeee;
-  color: #333333;
   margin: 0;
   width: 100%;
-  min-height: 100%; }
+  min-height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4em;
+  background: #eeeeee;
+  color: #333333; }
 
 html, .appView {
   margin: 0;
@@ -26,7 +26,19 @@ html, .appView {
   box-shadow: 3px 3px 3px #888; }
 
 .appView {
-  background-image: url("../images/back.png");
+  /*     This gradient is taken from http://www.colorzilla.com/gradient-editor/ */
+  background: -moz-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a1dbff), color-stop(53%, #cbebff), color-stop(100%, #f0f9ff));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  /* W3C */
   background-repeat: repeat;
   position: absolute; }
   .appView .topPanel {
@@ -37,19 +49,32 @@ html, .appView {
       display: block;
       width: 95%;
       overflow: hidden;
-      height: 45px;
+      height: 50px;
       margin-left: auto;
       margin-right: auto;
+      /*     This gradient is taken from http://www.colorzilla.com/gradient-editor/ */
+      background: -moz-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f6f8f9), color-stop(50%, #e5ebee), color-stop(51%, #d7dee3), color-stop(100%, #f5f7f9));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* W3C */
       position: relative;
       margin-top: 8px;
-      background: #dfdeb9;
       padding-left: 5px; }
       .appView .topPanel .topPanel-content .searchPanel-searchinput {
         margin-top: 10px;
-        width: 87%; }
+        width: 80%;
+        font-size: inherit; }
       .appView .topPanel .topPanel-content .topPanel-buttonPanel {
         display: block;
-        width: 45px;
+        width: 50px;
         overflow: hidden;
         height: 100%;
         float: right;
@@ -74,10 +99,22 @@ html, .appView {
       height: auto;
       margin-left: auto;
       margin-right: auto;
+      /*     This gradient is taken from http://www.colorzilla.com/gradient-editor/ */
+      background: -moz-linear-gradient(top, white 0%, #f3f3f3 50%, #ededed 51%, white 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(50%, #f3f3f3), color-stop(51%, #ededed), color-stop(100%, white));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, white 0%, #f3f3f3 50%, #ededed 51%, white 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, white 0%, #f3f3f3 50%, #ededed 51%, white 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, white 0%, #f3f3f3 50%, #ededed 51%, white 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, white 0%, #f3f3f3 50%, #ededed 51%, white 100%);
+      /* W3C */
       margin-bottom: 5px;
       max-height: 10%;
-      padding: 2px;
-      background: #f5f5e8; }
+      padding: 2px; }
       .appView .feedbody .tweet .userblock {
         display: block;
         width: 25%;
