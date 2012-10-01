@@ -4,9 +4,11 @@ define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, 
         styleStop: "stop",
         styleStart: "start",
         initialize: function() {
-            _.bindAll(this, "startStopFeed", "setButtonStyle");
+            _.bindAll(this, "startStopFeed", "setButtonStyle", "showButton");
             this.setButtonStyle();
+            this.showButton();
             Config.bind("change:running", this.setButtonStyle, this);
+            Config.bind("change:query", this.showButton, this);
         },
         events: {
             "click": "startStopFeed"
@@ -17,6 +19,14 @@ define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, 
             var styleStart = this.styleStart;
             $el.removeClass(styleStop + " " + styleStart);
             $el.addClass(Config.get("running") ? styleStart : styleStop);
+        },
+        showButton: function() {
+            var $el = $(this.el);
+            if (Config.get("query").length === 0) {
+                $el.hide();
+            } else {
+                $el.show();
+            }
         },
         startStopFeed: function() {
             Config.startStop();

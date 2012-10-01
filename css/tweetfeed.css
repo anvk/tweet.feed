@@ -27,19 +27,21 @@ html, .appView {
 
 .appView {
   /*     This gradient is taken from http://www.colorzilla.com/gradient-editor/ */
-  background: -moz-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  background-image: url("../images/clouds.png"), -moz-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a1dbff), color-stop(53%, #cbebff), color-stop(100%, #f0f9ff));
+  background-image: url("../images/clouds.png"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a1dbff), color-stop(53%, #cbebff), color-stop(100%, #f0f9ff));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  background-image: url("../images/clouds.png"), -webkit-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  background-image: url("../images/clouds.png"), -o-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  background-image: url("../images/clouds.png"), -ms-linear-gradient(top, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
   /* IE10+ */
-  background: linear-gradient(to bottom, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
+  background-image: url("../images/clouds.png"), linear-gradient(to bottom, #a1dbff 0%, #cbebff 53%, #f0f9ff 100%);
   /* W3C */
-  background-repeat: repeat;
+  background-repeat: repeat-y;
+  background-size: 100%;
+  background-position: center;
   position: absolute; }
   .appView .topPanel {
     position: fixed;
@@ -66,12 +68,17 @@ html, .appView {
       background: linear-gradient(to bottom, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
       /* W3C */
       position: relative;
-      margin-top: 8px;
-      padding-left: 5px; }
+      margin-top: 8px; }
       .appView .topPanel .topPanel-content .searchPanel-searchinput {
-        margin-top: 10px;
+        margin-top: 15px;
+        margin-left: 20px;
         width: 80%;
-        font-size: inherit; }
+        font-size: inherit;
+        border-style: none;
+        background: none;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #949191; }
       .appView .topPanel .topPanel-content .topPanel-buttonPanel {
         display: block;
         width: 50px;

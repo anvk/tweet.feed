@@ -1,3 +1,4 @@
+$borderColor: #949191;
 @mixin fullscreen { margin: 0; width: 100%; min-height: 100%; }
 @mixin buttonStyle($image) { background-size: 100%; background-image: url('../images/#{$image}.png'); }
 @mixin hcentered { margin-left: auto; margin-right: auto; }
@@ -18,12 +19,12 @@
 }
 @mixin gradientSingle($color1, $color2, $color3) {
 /*     This gradient is taken from http://www.colorzilla.com/gradient-editor/ */
-    background: -moz-linear-gradient(top, $color1 0%, $color2 53%, $color3 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(53%,$color2), color-stop(100%,$color3)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* IE10+ */
-    background: linear-gradient(to bottom, $color1 0%,$color2 53%,$color3 100%); /* W3C */
+    background-image: url('../images/clouds.png'), -moz-linear-gradient(top, $color1 0%, $color2 53%, $color3 100%); /* FF3.6+ */
+    background-image: url('../images/clouds.png'), -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(53%,$color2), color-stop(100%,$color3)); /* Chrome,Safari4+ */
+    background-image: url('../images/clouds.png'), -webkit-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* Chrome10+,Safari5.1+ */
+    background-image: url('../images/clouds.png'), -o-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* Opera 11.10+ */
+    background-image: url('../images/clouds.png'), -ms-linear-gradient(top, $color1 0%,$color2 53%,$color3 100%); /* IE10+ */
+    background-image: url('../images/clouds.png'), linear-gradient(to bottom, $color1 0%,$color2 53%,$color3 100%); /* W3C */
 }
 @mixin bodyGradient {
     @include gradientSingle(rgba(161,219,255,1), rgba(203,235,255,1), rgba(240,249,255,1));
@@ -48,7 +49,7 @@ body {
 html, .appView { @include fullscreen; }
 .floatingpanel {
     border-style: solid;
-    border-color: #949191;
+    border-color: $borderColor;
     border-width: 1px;
     border-radius: 5px;
     -moz-box-shadow: 3px 3px 3px #888;
@@ -57,7 +58,9 @@ html, .appView { @include fullscreen; }
 }
 .appView {
     @include bodyGradient;
-    background-repeat: repeat;
+    background-repeat:repeat-y;
+    background-size: 100%;
+    background-position: center;
     position: absolute;
     .topPanel {
         position: fixed;
@@ -69,11 +72,20 @@ html, .appView { @include fullscreen; }
             @include topGradient;
             position: relative;
             margin-top: 8px;
-            padding-left: 5px;
             .searchPanel-searchinput {
-                margin-top: 10px;
+                margin-top: 15px;
+                margin-left: 20px;
                 width: 80%;
                 font-size: inherit;
+                border-style: none;
+                background: none;
+                border: {
+                    bottom: {
+                        style: solid;
+                        width: 1px;
+                        color: $borderColor;
+                    }
+                }
             }
             .topPanel-buttonPanel {
                 @include renderArea(50px, 100%);
@@ -82,7 +94,7 @@ html, .appView { @include fullscreen; }
                     radius: 0px 5px 5px 0px;
                     left: {
                         style: solid;
-                        color: #949191;
+                        color: $borderColor;
                         width: 1px;
                     }
                 }
