@@ -64,6 +64,7 @@ html, .appView { @include fullscreen; }
     position: absolute;
     .topPanel {
         position: fixed;
+        right: 0px;
         width: 100%;
         z-index: 1000;
         .topPanel-content {
@@ -75,7 +76,7 @@ html, .appView { @include fullscreen; }
             .searchPanel-searchinput {
                 margin-top: 15px;
                 margin-left: 20px;
-                width: 80%;
+                width: 70%;
                 font-size: inherit;
                 border-style: none;
                 background: none;

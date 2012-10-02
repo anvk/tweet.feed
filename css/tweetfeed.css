@@ -45,6 +45,7 @@ html, .appView {
   position: absolute; }
   .appView .topPanel {
     position: fixed;
+    right: 0px;
     width: 100%;
     z-index: 1000; }
     .appView .topPanel .topPanel-content {
@@ -72,7 +73,7 @@ html, .appView {
       .appView .topPanel .topPanel-content .searchPanel-searchinput {
         margin-top: 15px;
         margin-left: 20px;
-        width: 80%;
+        width: 70%;
         font-size: inherit;
         border-style: none;
         background: none;

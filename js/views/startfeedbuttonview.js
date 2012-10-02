@@ -22,11 +22,11 @@ define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, 
         },
         showButton: function() {
             var $el = $(this.el);
+            var visibility = "visible";
             if (Config.get("query").length === 0) {
-                $el.hide();
-            } else {
-                $el.show();
+                visibility = "hidden";
             }
+            $el.css("visibility", visibility);
         },
         startStopFeed: function() {
             Config.startStop();
