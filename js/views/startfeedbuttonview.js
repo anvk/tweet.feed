@@ -5,6 +5,7 @@ define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, 
         styleStart: "start",
         initialize: function() {
             _.bindAll(this, "startStopFeed", "setButtonStyle", "showButton");
+            this.$el = $(this.el);
             this.setButtonStyle();
             this.showButton();
             Config.bind("change:running", this.setButtonStyle, this);
@@ -14,19 +15,18 @@ define(["jquery", "underscore", "backbone", "config"], function($, _, Backbone, 
             "click": "startStopFeed"
         },
         setButtonStyle: function() {
-            var $el = $(this.el);
+            var $el = this.$el;
             var styleStop = this.styleStop;
             var styleStart = this.styleStart;
             $el.removeClass(styleStop + " " + styleStart);
             $el.addClass(Config.get("running") ? styleStart : styleStop);
         },
         showButton: function() {
-            var $el = $(this.el);
             var visibility = "visible";
             if (Config.get("query").length === 0) {
                 visibility = "hidden";
             }
-            $el.css("visibility", visibility);
+            this.$el.css("visibility", visibility);
         },
         startStopFeed: function() {
             Config.startStop();

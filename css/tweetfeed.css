@@ -80,6 +80,16 @@ html, .appView {
         border-bottom-style: solid;
         border-bottom-width: 1px;
         border-bottom-color: #949191; }
+      .appView .topPanel .topPanel-content .topPanel-spinner {
+        display: block;
+        width: 20px;
+        overflow: hidden;
+        height: 20px;
+        background-image: url("../images/spinner.gif");
+        background-repeat: none;
+        margin-top: 15px;
+        margin-right: 5px;
+        float: right; }
       .appView .topPanel .topPanel-content .topPanel-buttonPanel {
         display: block;
         width: 50px;
@@ -121,7 +131,7 @@ html, .appView {
       background: linear-gradient(to bottom, white 0%, #f3f3f3 50%, #ededed 51%, white 100%);
       /* W3C */
       margin-bottom: 5px;
-      max-height: 10%;
+      min-height: 10%;
       padding: 2px; }
       .appView .feedbody .tweet .userblock {
         display: block;
@@ -135,8 +145,8 @@ html, .appView {
       .appView .feedbody .tweet .tweetcontent {
         display: block;
         width: 74%;
-        overflow: hidden;
-        height: 70px;
+        overflow: none;
+        height: auto;
         float: left; }
         .appView .feedbody .tweet .tweetcontent .highlight {
           background: yellow;

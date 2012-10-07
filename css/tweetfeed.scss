@@ -88,6 +88,14 @@ html, .appView { @include fullscreen; }
                     }
                 }
             }
+            .topPanel-spinner {
+                @include renderArea(20px, 20px);
+                background-image: url('../images/spinner.gif');
+                background-repeat: none;
+                margin-top: 15px;
+                margin-right: 5px;
+                float: right;
+            }
             .topPanel-buttonPanel {
                 @include renderArea(50px, 100%);
                 float: right;
@@ -117,7 +125,7 @@ html, .appView { @include fullscreen; }
             @include hcentered;
             @include panelGradient;
             margin-bottom: 5px;
-            max-height: 10%;
+            min-height: 10%;
             padding: 2px;
             .userblock {
                 @include renderArea(25%, 70px);
@@ -128,7 +136,7 @@ html, .appView { @include fullscreen; }
                 }
             }
             .tweetcontent {
-                @include renderArea(74%, 70px);
+                @include renderArea(74%, auto, block, none);
                 float: left;
                 .highlight {
                     background: yellow;
