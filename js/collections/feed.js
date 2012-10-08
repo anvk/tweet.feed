@@ -17,10 +17,14 @@ define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone,
             var query = Config.get("query");
             _.each(models, function(model) {
                 if (typeof this.get(model.id) === "undefined") {
-                    if (model.text.toLowerCase().indexOf(query.toLowerCase()) === -1) {
+                    var modelText = model.text;
+                    if (modelText.toLowerCase().indexOf(query.toLowerCase()) === -1) {
                         return;
                     }
-                    model.text = this.highlight(model.text, query);
+                    modelText = this.highlight(modelText, query);
+                    modelText = this.makelinks(modelText);
+                    modelText = this.makeTwitterLinks(modelText);
+                    model.text = modelText;
                     newModels.push(model);
                 }
             }, this);
@@ -42,6 +46,21 @@ define(["underscore", "backbone", "tweetmodel", "config"], function(_, Backbone,
         },
         highlight: function( data, search ) {
             return data.replace( new RegExp( "(" + this.preg_quote( search ) + ")" , 'gi' ), "<span class=\"highlight\">$1</span>" );
+        },
+        // taken from http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
+        makelinks: function(text) {
+            var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+            return text.replace(exp,"<a href='$1'>$1</a>");
+        },
+        // taken from http://stackoverflow.com/questions/8020739/regex-how-to-replace-twitter-links
+        makeTwitterLinks: function(text) {
+            return text.replace(/[\@\#]([a-zA-z0-9_]*)/g, function(m,m1) {
+                var t = '<a href="http://twitter.com/';
+                if(m.charAt(0) == '#') {
+                    t += 'hashtag/';
+                }
+                return t + encodeURI(m1) + '" target="_blank">' + m + '</a>';
+            });
         },
         updateTweets: function() {
             if (!Config.isRunning()) {
